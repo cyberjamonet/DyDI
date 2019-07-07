@@ -14,6 +14,7 @@
 ![Captura 3](Pantallazos/geth_attach.png "Captura 3")
 
 5.- Establecemos la nueva cuenta como la cuenta por defecto del sistema con el comando eth.defaultAccount donde se despositarán las recompensas del minado y a continuación iniciamos el proceso de minado ejecutando 5 hilos con el comando miner.start(5)
+
 ![Captura 4](Pantallazos/miner_start.png "Captura 4")
 
 6.- Por último confirmamos en el terminal donde se está ejecutando el nodo de la blockchain si se ha minado algun bloque válido que proporcione recompensa en la cuenta generada en el punto 4.
