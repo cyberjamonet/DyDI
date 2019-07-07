@@ -46,4 +46,5 @@ miner.start(5)
 eth.getBalance(eth.defaultAccount) 
 ```
 que se ha recibido la recompensa del minado.
+
 ![Captura 6](Pantallazos/balance.png "Captura 6")
