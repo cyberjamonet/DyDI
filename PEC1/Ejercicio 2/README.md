@@ -10,4 +10,5 @@ Los comandos utilizados para realizar la transacciones son los siguientes:
 1.2- Se realiza la transacción con el comando eth.sendTransaction({from:eth.accounts[0], to:eth.accounts[1], value: web3.toWei(1, "ether")}) donde se le indica la dirección de origen y destino y la cantidad a traspasar.
 
 1.3- Se comprueba con el comando eth.getBalance(eth.account[]) los balances de las cuentas involucradas en la transferencia
+
 ![Captura 1](Pantallazos/tx_geth.png "Captura 1")
