@@ -8,14 +8,14 @@ sudo add-apt-repository ppa:ethereum/ethereum
 sudo apt-get update
 sudo apt-get install solc
 ``` 
-A continuación se va a compilar el siguiente Smart Contract para obtener la siguiente información: 
+A continuación se va a compilar el siguiente Smart Contract [ExampleCoin.sol](ExampleCoin.sol) para obtener la siguiente información: 
 
 
-1.- Para obtener la dirección hash del bloque génesis mediante consola sin utilizar la función getBlock se pude usar el comando ```console admin.nodeInfo ``` y dentro del campo génesis podremos obtener la dirección del bloque.
-![Captura 1](Pantallazos/admin.modeInfo.png "Captura 1")
+1.- Códigos de operación del contrato inteligente.
+![Captura 1](Pantallazos/opcodes.png "Captura 1")
 
-Comprobamos en un explorador de bloques el bloque génesis para verificar que coincide con el obtenido en la línea de comandos.
-![Captura 2](Pantallazos/blockchain_viewer_rinkeby.png "Captura 2")
+2.- Identificadores de las funciones que existan dentro del contrato inteligente
+![Captura 2](Pantallazos/hashes.png "Captura 2")
 
-2.- Para obtener el número de nodos se ejecuta el sigueitne comando ```console net.peerCount ```
-![Captura 3](Pantallazos/num_nodos.png "Captura 3")
+2.- Estimación del gas utilizado por cada función 
+![Captura 3](Pantallazos/gas.png "Captura 3")
