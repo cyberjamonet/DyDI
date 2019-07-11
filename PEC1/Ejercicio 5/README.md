@@ -2,7 +2,7 @@
 
 ###  Ejercicio 5 Obtener identificadores de funciones sin el compilador de Solidity
 
-Para obtener los identificadores de las siguientes funciones, según la [https://solidity.readthedocs.io/en/latest/abi-spec.html#function-selector-and-argument-encoding](documentación de solidity), en que estos son obtenidos de la aplicación una funcón hash sha3 al nombre de la funcion y al tipo de paramétros que se pasan a esta.
+Para obtener los identificadores de las siguientes funciones, según la [documentación de solidity](https://solidity.readthedocs.io/en/latest/abi-spec.html#function-selector-and-argument-encoding), en que estos son obtenidos de la aplicación una funcón hash sha3 al nombre de la funcion y al tipo de paramétros que se pasan a esta.
 Una vez aplicada la función hash se obtienen los 4 primeros bytes del código ASCII del resultado de la función.
 
 Para obtener las funciones ejecutamos una consola con la aplicación geth con el siguiente comando
@@ -23,7 +23,7 @@ Por lo tanto el identificador es **27b57fcc**
 web3.sha3("getGasDetails()")
 "0x3d86f4af2d0b73fb4f46e0f668f472b5ea2669e6c34cf4e04648d8bc930a8395"
 ``` 
-Por lo tanto el identificador es **3d86f4af++
+Por lo tanto el identificador es **3d86f4af**
 
 3.- Identificador de la función function __callback(bytes32 id, string memory result) public{}
 ```console
