@@ -1,50 +1,53 @@
-## PEC 1
+## PEC 2
 
-###  Ejercicio 1 Construir una Blockchian propia a partir un archivo génesis.
+###  Ejercicio 1 Adquiera un dominio bajo el TLD ‘.test’ en la testnet Rinkeby.
 
-1.- Se ha generado un archivo [genesis.json](genesis.json) a partir del ejemplo disponible en la web de documentación de geth [https://github.com/ethereum/go-ethereum](https://github.com/ethereum/go-ethereum)
-
-2.- Se inicializa la blockchain con el comando 
+1.- Se ejecuta un nodo de Rinkeby con la aplicación geth y el siguiente comando para sincronizar los bloques
 ```console
-geth init genesis.json 
-```
-pasandole como parámetro el archivo genesis.json
-![Captura 1](Pantallazos/geth_init.png "Captura 1")
-
-3.- A continuación se arranca el nodo de la blockchain con el comando 
-```console
-geth
-```
-![Captura 2](Pantallazos/geth.png "Captura 2")
-
-4.- Una vez arrancada la blockchain abrimos otro terminal para ejecutar el comando
-```console
-geth attach 
-```
-que nos permite interacturar con el nodo de la blockchain. Una vez ejecutada la consola creamos una cuenta nueva con el comando 
-```console
-personal.newAccount
-```
-![Captura 3](Pantallazos/geth_attach.png "Captura 3")
-
-5.- Establecemos la nueva cuenta como la cuenta por defecto del sistema con el comando 
-```console
-eth.defaultAccount 
-```
-donde se despositarán las recompensas del minado y a continuación iniciamos el proceso de minado ejecutando 5 hilos con el comando 
-```console
-miner.start(5)
+geth --rinkeby
 ```
 
-![Captura 4](Pantallazos/miner_start.png "Captura 4")
-
-6.- Por último confirmamos en el terminal donde se está ejecutando el nodo de la blockchain si se ha minado algun bloque válido que proporcione recompensa en la cuenta generada en el punto 4.
-![Captura 5](Pantallazos/mining.png "Captura 5")
-
-7.- Confirmamoos con el comando 
+2.- Descargamos el archivo [ensutils-testnet.js] (https://github.com/ensdomains/ens/blob/master/ensutils-testnet.js) y modificamos la línea 220 con el siguiente comando que indica la dirección del contrato de ENS bajo Rinkeby
 ```console
-eth.getBalance(eth.defaultAccount) 
+var ens = ensContract.at('0xe7410170f87102df0055eb195163a03b7f2bff4a');
 ```
-que se ha recibido la recompensa del minado.
+renombramos el archivo modificado a [ensutils-rinkeby.js](ensutils-rinkeby.js)
 
-![Captura 6](Pantallazos/balance.png "Captura 6")
+3.- Una vez sincronizada la blockchain abrimos otro terminal para ejecutar el comando
+```console
+geth -rinkeby attach 
+```
+que nos permite interacturar con el nodo de la blockchain. Una vez ejecutada la consola cargamos el archivo ensutils-rinkeby.js con el comando 
+```console
+loadScript("/home/alvaro/ens/ensutils-rinkeby.js")
+```
+A continuación comprobamos que se ha cargado correctamente el archivo javascript comprobando la disponibilidad del nombre que queremos reservar en ENS con el comando
+```console
+testRegistrar.expiryTimes(web3.sha3("cyberjamonet"))
+```
+
+![Captura 1(Pantallazos/LoadScript.png "Captura 1")
+
+4.- Desbloqueamos la cuenta con el comando
+```console
+web3.personal.unlockAccount(eth.accounts[0], "cyberjamonet", 600000)
+```
+
+![Captura 2](Pantallazos/unlockaccount.png "Captura 2")
+
+5.- Una vez desbloqueada la cuenta a la que vamos a asociar a la reserva del dominio cyberjamonet.test ejecutamos el siguiente comando 
+```console
+testRegistrar.register(web3.sha3("cyberjamonet"), eth.accounts[0], {from: eth.accounts[0]})
+```
+
+![Captura 3](Pantallazos/register.png "Captura 3")
+
+6.- Finalmente comprobamos que se ha realizado el registro correctamente con los comandos 
+```console
+ens.owner(namehash("cyberjamonet.test"))
+```
+```console
+testRegistrar.expiryTimes(web3.sha3("cyberjamonet"))
+```
+
+![Captura 4](Pantallazos/comprobacion.png "Captura 4")
