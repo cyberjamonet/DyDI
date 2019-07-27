@@ -7,7 +7,7 @@
 geth --rinkeby
 ```
 
-2.- Descargamos el archivo [ensutils-testnet.js] (https://github.com/ensdomains/ens/blob/master/ensutils-testnet.js) y modificamos la línea 220 con el siguiente comando que indica la dirección del contrato de ENS bajo Rinkeby
+2.- Descargamos el archivo [ensutils-testnet.js](https://github.com/ensdomains/ens/blob/master/ensutils-testnet.js) y modificamos la línea 220 con el siguiente comando que indica la dirección del contrato de ENS bajo Rinkeby
 ```console
 var ens = ensContract.at('0xe7410170f87102df0055eb195163a03b7f2bff4a');
 ```
