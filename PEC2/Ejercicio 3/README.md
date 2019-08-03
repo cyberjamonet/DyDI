@@ -26,7 +26,7 @@ Posteriormente solicitará la contraseña para poder acceder a la cuenta Ethereu
 ```console
 swarm --recursive --defaultpath "index.html" up --encrypt  ./carpeta_ficheros_web
 ```
-![Captura 4(Pantallazos/swarmup.png "Captura 4")
+![Captura 4](Pantallazos/swarmup.png "Captura 4")
 
 Donde el parametro --recursive le indica que recorra la carpeta pasada como último parámetro de manera recursiva para subir todos los documentos contenidos en ella. 
 El parámetro defaulpath indica que el fichero por defecto para mostrar ante una petición del hash resultante es el fichero index.html
