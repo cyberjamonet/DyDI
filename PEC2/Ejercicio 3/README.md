@@ -6,7 +6,7 @@
 ```console
 geth --rinkeby --rpc --rpcport 8545 --rpcaddr localhost console
 ```
-![Captura 1(Pantallazos/gethrinkeby.png "Captura 1")
+![Captura 1](Pantallazos/gethrinkeby.png "Captura 1")
 
 2.- Se crea el ficheor html básico junto con los dos documentos que enlazará para hacer la prueba y que están disponibles en [Ejercicio 3](./)
 ```console
