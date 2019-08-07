@@ -26,7 +26,7 @@ A continuación comprobamos que se ha cargado correctamente el archivo javascrip
 testRegistrar.expiryTimes(web3.sha3("cyberjamonet"))
 ```
 
-![Captura 1(Pantallazos/LoadScript.png "Captura 1")
+![Captura 1](Pantallazos/LoadScript.png "Captura 1")
 
 4.- Desbloqueamos la cuenta con el comando
 ```console
