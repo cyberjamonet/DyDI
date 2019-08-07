@@ -33,45 +33,35 @@ Una vez ejecutado el comando se pide la introducción de la contraseña de la cu
 swarm --recursive --defaultpath "index.html" up ./Documents/GitHub/DyDI/PEC2/Ejercicio\ 4/pet-shop-tutorial/src/
 ```
 En el comando se indica que se recorra de manera recursiva el directorio src de la Dapp subiendo todo el contenido y que el fichero por defecto para la ejecución de la aplicación es index.html.
-La ejecución de este comando nos devuelve el hash de la aplicación ```console dafae0e046b973f40a8ba75b6b2acf6e95a145fe3625bf5e382038c24a75d610 ```
+La ejecución de este comando nos devuelve el hash de la aplicación ```dafae0e046b973f40a8ba75b6b2acf6e95a145fe3625bf5e382038c24a75d610 ```
 ![Captura 5](Pantallazos/swarmup.png "Captura 5")
 
 Se comprueba que la aplicación se ha cargado correctamente con la siguiente url http://localhost:8500/bzz:/dafae0e046b973f40a8ba75b6b2acf6e95a145fe3625bf5e382038c24a75d610/
 
 ![Captura 6](Pantallazos/urlpetshop.png "Captura 6")
 
-
-
-Se crea el fichero index.html básico junto con los dos documentos que enlazará para hacer la prueba y que están disponibles en [Ejercicio 3](./)
-A continuación se ejecuta una instacia del demonio Swarm en la que se debe indicar una cuenta de Ethereum con la que interactuará con la EVM a través del nodo de la aplicación geth que se está ejecuntado. Para obtener la cuenta se ejecuta el siguiente comando en la consola de geth
+5.- Por último se ha de enlazar el dominio adquirido en el ejercicio 1 con la aplicación Dapp subida a través de Swarm. Para ello, con la ayuda del siguiente comando se crea un resolver con la ayuda del siguiente comando 
 ```console
-eth.account[0]
+ens.setResolver(namehash('cyberjamonet.test'), publicResolver.address, {from: eth.accounts[0]});
 ```
-![Captura 2](Pantallazos/ethAccount.png "Captura 2")
+En este comando se indica como parámetro el dominio cyberjmonet.test, la dirección del contrato ENS indicado en el archivo ensutils-rinkeby.js y la cuenta que interactuará con la EVM, la cual ha tenido que ser desbloqueada previamente.
 
-Una vez obtenida la cuenta de Ethereum el comando que se ejecuta para lanzar la instancia de swarm es el siguiente
+![Captura 7](Pantallazos/setresolver.png "Captura 7")
+
+A continuación se ejecuta la función setContent de publicResolver donde se le indica el dominio y la dirección hash de la aplicación Dapp subida con Swarm. Previamente se ha tenido que desbloquear la cuenta indicada como tercer parámetro de la función para poder interactuar con la EVM
 ```console
-swarm --keystore ./.ethereum/rinkeby/keystore/ --bzzaccount c11ce832c6e97f731ec9c6f2c261ab93e651fe73
+publicResolver.setContent(namehash('cyberjamonet.test'), "0xdafae0e046b973f40a8ba75b6b2acf6e95a145fe3625bf5e382038c24a75d610", {from: eth.accounts[0]});
 ```
-Posteriormente solicitará la contraseña para poder acceder a la cuenta Ethereum pasada como parametro
-![Captura 3](Pantallazos/swarmkeystore.png "Captura 3")
+![Captura 8](Pantallazos/publicresolver.png "Captura 8")
 
-3.- Una vez está en ejecución el nodo swarm subimos los documentos con el siguiente comando
-```console
-swarm --recursive --defaultpath "index.html" up --encrypt  ./carpeta_ficheros_web
-```
-![Captura 4](Pantallazos/swarmup.png "Captura 4")
+6.- Se comprueba que la resolución del dominio se está haciendo correctamente, para ello se accede a la siguiente url http://localhost:8500/bzz:/cyberjamonet.test/
 
-Donde el parametro --recursive le indica que recorra la carpeta pasada como último parámetro de manera recursiva para subir todos los documentos contenidos en ella. 
-El parámetro defaulpath indica que el fichero por defecto para mostrar ante una petición del hash resultante es el fichero index.html
-El parámetro encrypt indica que utilice la encricptación disponible en swarm
+![Captura 9](Pantallazos/cyberjamonet-test-petshop.png "Captura 9")
 
-El resultado del comando indicado es el hash del proyecto básico web que en este caso es **``56e37fe1c9be59110db1a87922399bb68d629c29952623078cd6e899fc478a91130446032d298e869be44c298cc1a96b1fec8589a5be5f8ca34a9e9ffe31ba45``**
+En el nodo Swarm ejecutado se puede ver los registros de la resolución hecha.
+![Captura 10](Pantallazos/swarm-console.png "Captura 10")
 
-4.- Se comprueba el hash obtenido en una url para ver si los ficheros se han subido correctamente
+Se comprueba con Metamask que se puede interactuar con la aplicación para ello probamos a adoptar varios perros de la aplicación.
+![Captura 11](Pantallazos/swarm-console.png "Captura 11")
 
-http://localhost:8500/bzz:/56e37fe1c9be59110db1a87922399bb68d629c29952623078cd6e899fc478a91130446032d298e869be44c298cc1a96b1fec8589a5be5f8ca34a9e9ffe31ba45
-
-![Captura 5](Pantallazos/index.png "Captura 5")
-
-![Captura 6](Pantallazos/documento1.png "Captura 6")
+Se puede comprobar la transacción con id 0xa1cedb6b3565a4ca73dfbdf0b68cb9451bd3306c507ea270e4fdb9a623b80b69 en la siguiente url https://rinkeby.etherscan.io/tx/0xa1cedb6b3565a4ca73dfbdf0b68cb9451bd3306c507ea270e4fdb9a623b80b69
