@@ -17,7 +17,11 @@ loadScript("/home/alvaro/ens/ensutils-rinkeby.js")
 Se comprueba que la dirección del contrato ENS incluido en el fichero ensutils-rinkeby.js es **``0xe7410170f87102df0055eb195163a03b7f2bff4a``**
 ![Captura 3](Pantallazos/ens-address.png "Captura 3")
 
-3.- Se ejecuta una instancia del demonio Swarm con los siguientes parametros 
+3.- Se ejecuta una instancia del demonio Swarm con el siguiente comando 
+```console
+
+```
+swarm --ens-api "test:0xe7410170f87102df0055eb195163a03b7f2bff4a@http://127.0.0.1:8545" --keystore ./.ethereum/rinkeby/keystore/ --bzzaccount c11ce832c6e97f731ec9c6f2c261ab93e651fe73
 
 Se crea el fichero index.html básico junto con los dos documentos que enlazará para hacer la prueba y que están disponibles en [Ejercicio 3](./)
 A continuación se ejecuta una instacia del demonio Swarm en la que se debe indicar una cuenta de Ethereum con la que interactuará con la EVM a través del nodo de la aplicación geth que se está ejecuntado. Para obtener la cuenta se ejecuta el siguiente comando en la consola de geth
