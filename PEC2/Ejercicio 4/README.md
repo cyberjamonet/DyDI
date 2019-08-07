@@ -62,6 +62,6 @@ En el nodo Swarm ejecutado se puede ver los registros de la resolución hecha.
 ![Captura 10](Pantallazos/swarm-console.png "Captura 10")
 
 Se comprueba con Metamask que se puede interactuar con la aplicación para ello probamos a adoptar varios perros de la aplicación.
-![Captura 11](Pantallazos/swarm-console.png "Captura 11")
+![Captura 11](Pantallazos/metamask.png "Captura 11")
 
 Se puede comprobar la transacción con id 0xa1cedb6b3565a4ca73dfbdf0b68cb9451bd3306c507ea270e4fdb9a623b80b69 en la siguiente url https://rinkeby.etherscan.io/tx/0xa1cedb6b3565a4ca73dfbdf0b68cb9451bd3306c507ea270e4fdb9a623b80b69
