@@ -9,12 +9,15 @@ geth --rinkeby --rpc --rpcport 8545 --rpcaddr localhost console
 ![Captura 1](Pantallazos/gethrinkeby.png "Captura 1")
 En la imagen se puede ver marcada la dirección de la cuenta que será utilizada para interactuar con la EVM en la ejecución del nodo Swarm y 
 
-2.- Cargamos el fichero [ensutils-rinkeby.js](ensutils-rinkeby.js) con el comando 
+2.- Se carga el fichero [ensutils-rinkeby.js](ensutils-rinkeby.js) que permitirá, con sus funciones, interactuar con el contrato ENS de la red Rinkeby, para realizar la carga se ejecuta el siguiente comando 
 ```console
 loadScript("/home/alvaro/ens/ensutils-rinkeby.js")
+```
+![Captura 2](Pantallazos/LoadScript.png "Captura 2")
+Se comprueba que la dirección del contrato ENS incluido en el fichero ensutils-rinkeby.js es **``0xe7410170f87102df0055eb195163a03b7f2bff4a``**
+![Captura 3](Pantallazos/ens-address.png "Captura 3")
 
-
-2.- Se ejecuta una instancia del demonio Swarm para tener un nodo con el siguiente comando
+3.- Se ejecuta una instancia del demonio Swarm con los siguientes parametros 
 
 Se crea el fichero index.html básico junto con los dos documentos que enlazará para hacer la prueba y que están disponibles en [Ejercicio 3](./)
 A continuación se ejecuta una instacia del demonio Swarm en la que se debe indicar una cuenta de Ethereum con la que interactuará con la EVM a través del nodo de la aplicación geth que se está ejecuntado. Para obtener la cuenta se ejecuta el siguiente comando en la consola de geth
